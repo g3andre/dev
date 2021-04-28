@@ -1,30 +1,34 @@
 const iPeso = document.querySelector("#peso");
 const iAltura = document.querySelector("#altura");
 const btnCalcular = document.querySelector("button");
+const dAlert = document.getElementById("alert");
 
 (function inicio() {
     btnCalcular.addEventListener('click', btnCalcularOnClick);
 })()
 
 function btnCalcularOnClick() {
+    dAlert.style.display = 'none';
     let message = hasInvalidateData();
     if (!message) {
         const imc = calcularImc(iPeso.value, iAltura.value);
         message = `Seu IMC é : <strong>${imc} (${faixaDePeso(imc)})</strong>`;
+        showMessage(message);
+        return;
     }
     showAlertMessage(message);
 }
 
-function showMessage(message) {
-    const dAlert = document.getElementById("alert");
-    // dAlert.classList.replace('alert-danger', 'alert-warning')
+function showMessage(message) {    
+    dAlert.classList.replace('alert-danger', 'alert-warning')
     dAlert.innerHTML = message;
     dAlert.style.display = "block";
 }
 
 function showAlertMessage(message) {
-    document.getElementById("alert").classList.replace('alert-warning', 'alert-danger')
-    showMessage(message)
+    dAlert.classList.replace('alert-warning', 'alert-danger')
+    dAlert.innerHTML = message;
+    dAlert.style.display = "block";
 }
 
 
@@ -58,7 +62,7 @@ function hasInvalidateData() {
     let message;
 
     if (isNaN(iPeso.value) || iPeso.value.length == 0) message = `<strong>Peso Inválido...</strong>`;
-    if (isNaN(iAltura.value) || iAltura.value.length == 0) message = `<strong>Altura Inválida...</strong>`;
+    else if (isNaN(iAltura.value) || iAltura.value.length == 0) message = `<strong>Altura Inválida...</strong>`;
 
     return message;
 }
