@@ -13,7 +13,7 @@
 		<title>Calculadora de IMC</title>
 	</head>
 	<body class="text-light">
-		<div class="container d-flex justify-content-center">
+		<div class="container justify-content-center">
 			<div class="col-lg-5 col-md-10 bg-success p-5 rounded mt-5">
 				<h1 class="mb-5 mt-5 text-center">Tabela IMC</h1>
 				<h3 class="mb-5">Calcule seu IMC</h3>
@@ -35,15 +35,36 @@
 						aria-describedby="emailHelp"
 					/>
 				</div>
-                <div class="d-grid mt-5">
+				<div class="d-grid mt-5">
 					<button type="button" class="btn btn-primary mb-3">Calcular</button>
 				</div>
 
-                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" style="display: none;"> 
-                  
-                </div>
+				<div
+					class="alert alert-danger alert-dismissible fade show"
+					role="alert"
+					id="alert"
+					style="display: none"
+				></div>
+			</div>
+
+			<div class="col-lg-5 col-md-10 bg-success p-5 rounded mt-5">
+				<h2>Meu timer</h2>
+				<div id="timer" class="mt-5">
+					<h3 class="text-center" >
+						<span id="time-update"></span>
+						<!-- <span id="hr">00</span> : <span id="min">59</span> : -->
+						<!-- <span id="sec">50</span> -->
+					</h3>
+					<div class="d-flex justify-content-around mt-5">
+						<button type="button" class="btn btn-primary btn-sm" id="start">
+							Iniciar
+						</button>
+						<button type="button" class="btn btn-primary btn-sm" id="stop">Pausar</button>
+						<button type="button" class="btn btn-primary btn-sm" id="reset">Zerar</button>
+					</div>
+				</div>
 			</div>
 		</div>
-        <script src="./index.js"></script>
+		<script src="./index.js"></script>
 	</body>
 </html>
